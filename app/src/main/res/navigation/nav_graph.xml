@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/cityLookupFragment">
+
+    <fragment
+        android:id="@+id/cityLookupFragment"
+        android:name="com.example.weatherexercise.view.CityLookupFragment"
+        android:label="CityLookupFragment"
+        tools:layout="@layout/fragment_citylookup"
+        >
+        <action
+            android:id="@+id/action_cityLookupFragment_to_forecastFragment"
+            app:destination="@id/forecastFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forecastFragment"
+        android:name="com.example.weatherexercise.view.ForecastFragment"
+        android:label="ForecastFragment"
+        tools:layout="@layout/fragment_forecast"
+        >
+        <argument
+            android:name="wData"
+            app:argType="com.example.weatherexercise.model.ForecastData" />
+        <action
+            android:id="@+id/action_forecastFragment_to_forecastDetailFragment"
+            app:destination="@id/forecastDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forecastDetailFragment"
+        android:name="com.example.weatherexercise.view.ForecastDetailFragment"
+        android:label="ForecastDetailFragment"
+        tools:layout="@layout/fragment_forecast_detail"
+        >
+        <argument
+            android:name="fDetail"
+            app:argType="com.example.weatherexercise.model.ForecastDetails" />
+    </fragment>
+</navigation>
